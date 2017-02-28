@@ -14,12 +14,21 @@
                 console.log(arr[i]+":"+reg_1.test(arr[i]));
             }
         }
-        var arr_2 = ["foo foo bar","foo bar foo","foo  barbar bar"];
+        var arr_2 = ["foo foo bar","foo bar foo","foo  barbar bar","111 111 abc"];
         fn_2(arr_2);
         function fn_2(arr) {
             var reg_2 = /\b(\w+)\b\s+\1\b/;
             for (var i=0;i<arr.length;i++){
                 console.log(arr[i]+":"+reg_2.test(arr[i]));
+            }
+        }
+
+        var arr_3 = ["dfadfa","fdfsad","纪煜佳","房贷首付c"];
+        fn_3(arr_3);
+        function fn_3(arr) {
+            var reg_3 = /^\w+$/;
+            for (var i=0;i<arr.length;i++){
+                console.log(arr[i]+":"+reg_3.test(arr[i]));
             }
         }
     </script>
