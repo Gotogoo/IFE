@@ -185,12 +185,19 @@ aside.w form{
 .passwordconfirm .passwordconfirm-name,
 .sex .sex-name,
 .city .city-name,
-.habits .habits-name,
-.description .description-name{
+.habits .habits-name{
     display: inline-block;
     width: 353px;
     height: 22px;
     line-height: 22px;
+    text-align: right;
+}
+.description .description-name {
+    display: inline-block;
+    width: 353px;
+    height: 77px;
+    line-height: 12px;
+    vertical-align: top;
     text-align: right;
 }
 #email-input,
