@@ -1,0 +1,51 @@
+body{
+    padding: 0;
+    margin: 0 auto;
+}
+.father{
+    position: fixed;
+    height: 200px;
+    width: 400px;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -200px;
+    background-color: #ccc;
+    /*overflow: hidden;*/
+}
+.left-top{
+    position: absolute;
+    background-color: #FC0;
+    /*quarter circle start*/
+    height: 50px;
+    width: 50px;
+    border-radius: 0 0 50px 0;
+    /*quarter circle end*/
+    /*clip start*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*border-radius: 50%;*/
+    /*clip: rect(50px 100px 100px 50px);*/
+    /*left: -50px;*/
+    /*top:-50px;*/
+    /*clip end*/
+}
+.right-bottom{
+    position: absolute;
+    background-color: #FC0;
+    /*quarter circle start*/
+    height: 50px;
+    width: 50px;
+    border-radius: 50px 0 0 0;
+    right: 0;
+    bottom: 0;
+    /*quarter circle end*/
+    /*clip start*/
+    /*height: 100px;*/
+    /*width: 100px;*/
+    /*border-radius: 50%;*/
+    /*clip: rect(0 50px 50px 0);*/
+    /*right: -50px;*/
+    /*bottom:-50px;*/
+    /*clip end*/
+}
