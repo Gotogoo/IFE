@@ -34,7 +34,7 @@ table{
 p{
     word-wrap: break-word;
 }
-.clearfix:before,  .clearfix:after {
+.clearfix:before,.clearfix:after {
     content: "";
     display: table;
 }
@@ -64,7 +64,7 @@ body{
     background: #fff;
     border: 1px solid #999;
 }
-.grail-introduction-content p{
+.grail-introduction p{
     font-size: 12px;
     line-height: 1.5em;
     margin-bottom: 6px;
@@ -121,7 +121,7 @@ body{
 /*Flying wing layout start*/
 .wing-container{
     padding: 20px;
-    min-width: 520px;
+    min-width: 640px;
     background: #eee;
     border: 1px solid #999;
 }
@@ -136,12 +136,12 @@ body{
     padding: 20px;
     border: 1px solid #999;
 }
-.wing-introduction-inner-content p{
+.wing-introduction-inner p{
     font-size: 12px;
     line-height: 1.5em;
     margin-bottom: 6px;
 }
-.wing-introduction-inner-content p:last-child{
+.wing-introduction-inner p:last-child{
     margin-bottom: 0;
 }
 .wing-team{

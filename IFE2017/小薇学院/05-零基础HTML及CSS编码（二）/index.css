@@ -1,0 +1,289 @@
+/*CSS reset start*/
+*{
+    box-sizing: border-box;
+}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 12px"微软雅黑","Arial Narrow",HELVETICA;
+    background: #DEDEDE;
+    -webkit-text-size-adjust: 100%;
+}
+a {
+    color: #00f;
+    text-decoration:underline
+}
+a:hover {
+    color: #C81623;
+}
+em,address{
+    font-style: normal;
+}
+li{
+    list-style: none;
+}
+img{
+    border: 0;
+    vertical-align: middle;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+p{
+    word-wrap: break-word;
+}
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1;/*IE678*/
+}
+/*CSS reset end*/
+
+header{
+    height: 60px;
+    background-color: #333;
+    overflow: auto;
+}
+nav h1{
+    float: left;
+    width: 157px;
+    height: 60px;
+}
+nav h1 a{
+    display: inline-block;
+    float: left;
+    height: 38px;
+    width: 117px;
+    margin: 10px 0 0 40px;
+    text-indent: -1000px;
+    background: url(https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png) no-repeat;
+}
+nav ul{
+    float: right;
+    height: 60px;
+    margin-right: 10px;
+}
+nav li{
+    height: 60px;
+    float: left;
+}
+nav ul li a{
+    display: inline-block;
+    padding: 22px 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #eee;
+    text-decoration:none;
+}
+nav ul li a:hover{
+    color: #333;
+    background-color: #eee;
+}
+.container{
+    padding: 20px;
+    min-width: 766px;
+}
+main article{
+    float: left;
+    margin-right: 384px;
+}
+main section{
+    border: 1px solid #CBCBCB;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #848484;
+}
+main section h2{
+    padding: 20px 0;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 600;
+}
+main section h3{
+    font-size: 16px;
+    line-height: 16px;
+    color: #646464;
+    padding-bottom: 18px;
+}
+main section address{
+    color: #969696;
+    font-size: 12px;
+    line-height: 12px;
+}
+.section-1 p,
+.section-2 p{
+    text-indent: 2em;
+    padding: 14px 0;
+    font-size: 14px;
+    line-height: 26px;
+}
+.section-2 ul{
+    margin: 14px 0 14px 20px;
+}
+.section-2 li{
+    font-size: 14px;
+    line-height: 26px;
+}
+.section-3 .images{
+    float: left;
+    width: 122px;
+    height: 126px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+.section-3 .images span{
+    font-size: 12px;
+}
+.section-3 .images img{
+    margin-top: 10px;
+    width: 100px;
+}
+.section-4 ol{
+    margin: 16px 40px;
+}
+.section-4 ol li{
+    list-style-type: decimal;
+    font-size: 14px;
+    line-height: 26px;
+}
+.section-4 table{
+    width: 100%;
+}
+.section-4 thead{
+    background-color: #333;
+    text-align: left;
+    color: #fff;
+}
+.section-4 th,
+.section-4 td{
+    border: 1px solid #ccc;
+    padding-left: 6px;
+}
+.section-4 tr{
+    height: 24px;
+}
+.section-4 tfoot{
+    background-color: #ccc;
+    font-weight: 700;
+}
+/*aside start*/
+aside{
+    float: left;
+    margin-left: -364px;
+    width: 364px;
+    border: 1px solid #CBCBCB;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #848484;
+}
+aside h2{
+    height: 38px;
+    font-size: 16px;
+    line-height: 38px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-left: 3px solid #CDCDCD;
+}
+aside .email .email-name,
+aside .password .password-name,
+aside .passwordconfirm .passwordconfirm-name,
+aside .sex .sex-name,
+aside .city .city-name,
+aside .habits .habits-name{
+    display: inline-block;
+    width: 93px;
+    height: 22px;
+    line-height: 22px;
+    text-align: right;
+}
+.description .description-name {
+    display: inline-block;
+    width: 93px;
+    height: 77px;
+    line-height: 12px;
+    vertical-align: top;
+    text-align: right;
+}
+aside #email-input,
+aside #password-input,
+aside #passwordconfirm-input{
+    display: inline-block;
+    margin-left: 14px;
+    padding-left: 3px;
+    height: 22px;
+    width: 129px;
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid #CBCBCB;
+}
+aside p.email-specification,
+aside p.password-specification{
+    margin: 12px 0 24px 110px;
+    padding-left: 3px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #ccc;
+}
+aside .password,
+aside .sex,
+aside .city,
+aside .habits,
+aside .description{
+    margin-bottom: 10px;
+}
+aside .sex .sex-radio,
+aside .city .city-option,
+aside .habits .habits-input,
+aside #descripition-input{
+    display: inline-block;
+    margin-left: 14px;
+}
+aside #descripition-input{
+    width: 210px;
+    height: 100px;
+}
+aside .sex .sex-radio,
+aside .habits .habits-input{
+    padding-left: 3px;
+}
+aside .submit .submit-button{
+    display: inline-block;
+    width: 322px;
+    height: 40px;
+    background-color: #3355D0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+aside #submit-input{
+    display: none;
+}
+/*aside end*/
+footer{
+    height: 70px;
+    text-align: center;
+    background-color: #000;
+}
+footer span{
+    color: #eee;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
