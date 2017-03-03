@@ -1,0 +1,190 @@
+/*CSS reset start*/
+*{
+    box-sizing: border-box;
+}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 12px"微软雅黑","Arial Narrow",HELVETICA;
+    -webkit-text-size-adjust: 100%;
+}
+a {
+    color: #00f;
+    text-decoration:underline
+}
+a:hover {
+    color: #C81623;
+}
+em,address{
+    font-style: normal;
+}
+li{
+    list-style: none;
+}
+img{
+    border: 0;
+    vertical-align: middle;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+p{
+    word-wrap: break-word;
+}
+.clearfix:before,  .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1;/*IE678*/
+}
+/*CSS reset end*/
+body{
+    padding: 20px;
+    background: #fff;
+}
+/*Grail layout start*/
+.grail-container{
+    padding: 20px 160px 20px 240px;
+    min-width: 640px;
+    background: #eee;
+    border: 1px solid #999;
+    margin-bottom: 20px;
+}
+.grail-introduction{
+    float: left;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.grail-introduction-content p{
+    font-size: 12px;
+    line-height: 1.5em;
+    margin-bottom: 6px;
+}
+.grail-team{
+    float: left;
+    width: 200px;
+    position: relative;
+    right: 220px;
+    margin-left: -100%;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.grail-team-logo{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url("http://placehold.it/80x80") no-repeat;
+    border: 1px solid #999;
+}
+.grail-team-name{
+    vertical-align: top;
+    width: 60px;
+    float: right;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    text-align: center;
+ }
+.grail-person{
+    float: left;
+    width: 120px;
+    position: relative;
+    left: 140px;
+    margin-left: -120px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.grail-person-logo{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url("http://placehold.it/80x80") no-repeat;
+    border: 1px solid #999;
+    margin-bottom: 20px;
+}
+.grail-person-logo:last-child{
+    margin-bottom: 0;
+}
+/*Grail layout end*/
+
+/*Flying wing layout start*/
+.wing-container{
+    padding: 20px;
+    min-width: 520px;
+    background: #eee;
+    border: 1px solid #999;
+}
+.wing-introduction{
+    float: left;
+    width: 100%;
+}
+.wing-introduction-inner{
+    margin-left: 220px;
+    margin-right: 140px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #999;
+}
+.wing-introduction-inner-content p{
+    font-size: 12px;
+    line-height: 1.5em;
+    margin-bottom: 6px;
+}
+.wing-introduction-inner-content p:last-child{
+    margin-bottom: 0;
+}
+.wing-team{
+    float: left;
+    width: 200px;
+    margin-left: -100%;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.wing-team-logo{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url("http://placehold.it/80x80") no-repeat;
+    border: 1px solid #999;
+}
+.wing-team-name{
+    vertical-align: top;
+    width: 60px;
+    float: right;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    text-align: center;
+}
+.wing-person{
+    float: left;
+    width: 120px;
+    margin-left: -120px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.wing-person-logo{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url("http://placehold.it/80x80") no-repeat;
+    border: 1px solid #999;
+    margin-bottom: 20px;
+}
+.wing-person-logo:last-child{
+    margin-bottom: 0;
+}
+/*Flying wing layout end*/
