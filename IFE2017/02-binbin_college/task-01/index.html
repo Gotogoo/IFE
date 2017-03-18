@@ -26,7 +26,9 @@
             //绑定事件
             btn.onclick = function () {
                 //书写事件驱动程序
+                if(input.value){
                 display.innerHTML = input.value;
+                }
             }
         })();
     </script>
