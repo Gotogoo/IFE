@@ -14,12 +14,6 @@
     <button id="right-out">右侧出</button>
     <br>
     <ul>
-        <li class="box">10</li>
-        <li class="box">3</li>
-        <li class="box">7</li>
-        <li class="box">12</li>
-        <li class="box">11</li>
-        <li class="box">30</li>
     </ul>
     <script>
         //绑定事件源
@@ -53,7 +47,9 @@
                 // 若未输入，弹窗提示输入
                 alert("请输入数字")
             }
-        }
+            // 文本框自动获取焦点
+            input.focus();
+        };
         rIn.onclick = function () {
             if(/\d+/.test(input.value)){
                 var newli = document.createElement("li");
@@ -65,24 +61,40 @@
             else {
                 alert("请输入数字")
             }
-        }
+            input.focus();
+        };
         lOut.onclick = function () {
-            // 将第一个元素的内容赋值给文本框
-            input.value = lis[0].innerHTML;
-            // 移除第一个元素
-            ul.removeChild(lis[0]);
-            // 弹窗显示第一个元素的内容
-            alert("删除的元素为："+input.value);
-        }
+            // 判断第一个元素是否存在
+            if(lis[0]){
+                // 将第一个元素的内容赋值给文本框
+                input.value = lis[0].innerHTML;
+                // 移除第一个元素
+                ul.removeChild(lis[0]);
+                // 弹窗显示第一个元素的内容
+                alert("删除的元素为："+input.value);
+            }
+            else{
+                // 若不存在弹窗提醒
+                alert("队列中没有元素，无法删除")
+            }
+            input.focus();
+        };
         rOut.onclick = function () {
-            // 获取最后一个元素
-            var lastli = ul.lastElementChild || ul.lastChild;
-            // 将最后一个元素的内容赋值给文本框
-            input.value = lastli.innerHTML
-            // 移除最后一个元素
-            ul.removeChild(lastli)
-            // 弹窗显示最后一个元素的内容
-            alert("删除的元素为："+input.value);
+            // 判断最后一个元素是否存在
+            if(lis[0]){
+                // 获取最后一个元素
+                var lastli = ul.lastElementChild || ul.lastChild;
+                // 将最后一个元素的内容赋值给文本框
+                input.value = lastli.innerHTML
+                // 移除最后一个元素
+                ul.removeChild(lastli)
+                // 弹窗显示最后一个元素的内容
+                alert("删除的元素为："+input.value);
+            }
+            else{
+                alert("队列中没有元素，无法删除")
+            }
+            input.focus();
         }
     </script>
 </body>
