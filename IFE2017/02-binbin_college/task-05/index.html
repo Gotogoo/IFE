@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-基础JavaScript练习（二）</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="inputarea">
+    <input type="text">
+    <button>左侧入</button>
+    <button>右侧入</button>
+    <button>左侧出</button>
+    <button>右侧出</button>
+    <button>随机生成</button>
+    <button>冒泡排序</button>
+    <button>重置排序</button>
+</div>
+<ul></ul>
+</body>
+<script type="text/javascript" src="js/tool.js"></script>
+<script type="text/javascript">
+
+    (function () {
+        var btns = document.querySelectorAll("button"),
+            lin = btns[0],
+            rin = btns[1],
+            lout = btns[2],
+            rout = btns[3],
+            create = btns[4],
+            bubbleBtn = btns[5];
+        addHandler(lin, "click", leftIn);
+        addHandler(rin, "click", rightIn);
+        addHandler(lout, "click", leftOut);
+        addHandler(rout, "click", rightOut);
+        addHandler(create, "click", createEle);
+        addHandler(bubbleBtn, "click", bubbleSort);
+    })();
+
+    function deleteEle() {
+        this.parentNode.removeChild(this);
+    }
+
+    function inputli(num) {
+        var newli = document.createElement("li");
+        newli.style.height = num + "px";
+        newli.onclick = deleteEle;
+        return newli;
+    }
+
+    function leftIn() {
+        var input = document.querySelector("input"),
+            queue = document.querySelector("ul"),
+            lis = queue.children,
+            num = Number(input.value);
+        if (lis.length < 60) {
+            if (num >= 10 && num <= 100) {
+                queue.insertBefore(inputli(num), lis[0]);
+            }
+            else {
+                alert("请输入10-100之间的数字");
+            }
+        }
+        else {
+            alert("列表最多只能容纳60个元素");
+        }
+        input.focus();
+    }
+
+    function rightIn() {
+        var input = document.querySelector("input"),
+            queue = document.querySelector("ul"),
+            lis = queue.children,
+            num = Number(input.value);
+        if (lis.length < 60) {
+            if (num >= 10 && num <= 100) {
+                queue.appendChild(inputli(num));
+            }
+            else {
+                alert("请输入10-100之间的数字");
+            }
+        }
+        else {
+            alert("列表最多只能容纳60个元素");
+        }
+        input.focus();
+    }
+
+    function leftOut() {
+        var input = document.querySelector("input"),
+            queue = document.querySelector("ul"),
+            lis = queue.children;
+        if (lis[0]) {
+            input.value = parseInt(lis[0].style.height);
+            queue.removeChild(lis[0]);
+            alert("删除的元素为：" + input.value);
+        }
+        else {
+            alert("队列中没有元素，无法删除");
+        }
+        input.focus();
+    }
+
+    function rightOut() {
+        var queue = document.querySelector("ul"),
+            input = document.querySelector("input"),
+            lis = queue.children;
+        if (lis[0]) {
+            var lastli = queue.lastElementChild || ul.lastChild;
+            input.value = parseInt(lis[0].style.height);
+            queue.removeChild(lastli);
+            alert("删除的元素为：" + input.value);
+        }
+        else {
+            alert("队列中没有元素，无法删除");
+        }
+        input.focus();
+    }
+
+    function createEle() {
+        var queue = document.querySelector("ul");
+        queue.innerHTML = "";
+        for (var i = 0; i < 60; i++) {
+            var newli = document.createElement("li");
+            newli.style.height = Math.floor(Math.random() * (100 - 10 + 1) + 10).toString() + "px";
+            newli.onclick = deleteEle;
+            queue.appendChild(newli);
+        }
+    }
+
+    function bubbleSort() {
+        if (document.querySelector("ul").children[0]) {
+            var btns = document.querySelectorAll("button"),
+                resetbtn = btns[6],
+                lis = document.querySelector("ul").children,
+                dalay = parseInt(1800/lis.length),
+                i = 0, j = 0, timer,
+                templis = document.querySelector("ul").innerHTML;
+            resetbtn.onclick = function () {
+                clearInterval(timer);
+                document.querySelector("ul").innerHTML = templis;
+                deblockbtn()
+            };
+            blockbtn();
+            timer = setInterval(function () {
+                if (i < lis.length) {
+                    if (j < lis.length - i - 1) {
+                        if (j - 1 >= 0) {
+                            lis[j - 1].className = "";
+                        }
+                        /*
+                         如果只需高亮一个元素，则执行下面一行代码，
+                         lis[j].className = "";
+
+                         if (j-1 >= 0) {
+                         lis[j-1].className = "";
+                         }
+                         与
+                         if (j-1 >= 0) {
+                         lis[j-1].className = "";
+                         }else {
+                         lis[j].className = "";
+                         }
+                         无需执行
+                         */
+                        if (lis[j].offsetHeight > lis[j + 1].offsetHeight) {
+                            var temp = lis[j].style.height;
+                            lis[j].style.height = lis[j + 1].style.height;
+                            lis[j + 1].style.height = temp;
+                        }
+                        lis[j + 1].className = "current";
+                        j++;
+                    } else {
+                        if (j - 1 >= 0) {
+                            lis[j - 1].className = "";
+                        } else {
+                            lis[j].className = "";
+                        }
+                        i++;
+                        lis[lis.length - i].className = "finish";
+                        j = 0;
+                    }
+                } else {
+                    clearInterval(timer);
+                    deblockbtn();
+                }
+            }, dalay)
+        }
+    }
+    function blockbtn() {
+        var btns = document.querySelectorAll("button"),
+            lin = btns[0],
+            rin = btns[1],
+            lout = btns[2],
+            rout = btns[3],
+            create = btns[4],
+            bubbleBtn = btns[5];
+        lin.disabled = "disabled";
+        rin.disabled = "disabled";
+        lout.disabled = "disabled";
+        rout.disabled = "disabled";
+        create.disabled = "disabled";
+        bubbleBtn.disabled = "disabled";
+    }
+    function deblockbtn() {
+        var btns = document.querySelectorAll("button"),
+            lin = btns[0],
+            rin = btns[1],
+            lout = btns[2],
+            rout = btns[3],
+            create = btns[4],
+            bubbleBtn = btns[5];
+        lin.disabled = "";
+        rin.disabled = "";
+        lout.disabled = "";
+        rout.disabled = "";
+        create.disabled = "";
+        bubbleBtn.disabled = "";
+    }
+</script>
+</html>

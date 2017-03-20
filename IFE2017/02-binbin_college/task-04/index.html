@@ -28,10 +28,6 @@
         function remove () {
             this.parentNode.removeChild(this);
         }
-        // 为原有元素绑定点击删除事件
-        for(var i=0;i<lis.length;i++) {
-            lis[i].onclick = remove;
-        }
         lIn.onclick = function () {
             // 判断是否已输入且输入的内容为数字
             if(/\d+/.test(input.value)){
