@@ -133,7 +133,7 @@
             var btns = document.querySelectorAll("button"),
                 resetbtn = btns[6],
                 lis = document.querySelector("ul").children,
-                dalay = parseInt(1800/lis.length),
+                delay = parseInt(1800 / lis.length),
                 i = 0, j = 0, timer,
                 templis = document.querySelector("ul").innerHTML;
             resetbtn.onclick = function () {
@@ -145,8 +145,9 @@
             timer = setInterval(function () {
                 if (i < lis.length) {
                     if (j < lis.length - i - 1) {
-                        if (j - 1 >= 0) {
-                            lis[j - 1].className = "";
+                        if (j < lis.length - i - 2) {
+                            lis[j].className = "";
+                            lis[j + 2].className = "current";
                         }
                         /*
                          如果只需高亮一个元素，则执行下面一行代码，
@@ -168,13 +169,10 @@
                             lis[j].style.height = lis[j + 1].style.height;
                             lis[j + 1].style.height = temp;
                         }
-                        lis[j + 1].className = "current";
                         j++;
                     } else {
-                        if (j - 1 >= 0) {
+                        if (j - 1 > 0) {
                             lis[j - 1].className = "";
-                        } else {
-                            lis[j].className = "";
                         }
                         i++;
                         lis[lis.length - i].className = "finish";
@@ -184,7 +182,7 @@
                     clearInterval(timer);
                     deblockbtn();
                 }
-            }, dalay)
+            }, 10)
         }
     }
     function blockbtn() {
