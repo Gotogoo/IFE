@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-基础JavaScript练习（二）</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="inputarea">
+    <div class="msgarea">
+        <textarea placeholder="请输入要插入的信息，可以一次批量输入多个内容，用空格、回车或不同的符号分隔"></textarea>
+        <div class="msgbtns">
+            <button>左侧插入</button>
+            <button>右侧插入</button>
+            <button>左侧移出</button>
+            <button>右侧移出</button>
+        </div>
+    </div>
+    <div class="searcharea">
+        <input type="text" placeholder="请输入要查询的信息">
+        <button>查询</button>
+    </div>
+</div>
+<ul></ul>
+
+</body>
+<script type="text/javascript" src="js/tool.js"></script>
+<script type="text/javascript">
+
+    (function () {
+        var btns = document.querySelectorAll("button"),
+            lin = btns[0],
+            rin = btns[1],
+            lout = btns[2],
+            rout = btns[3],
+            searchbtn = btns[4],
+            clearbtn = btns[5];
+        addHandler(lin, "click", leftIn);
+        addHandler(rin, "click", rightIn);
+        addHandler(lout, "click", leftOut);
+        addHandler(rout, "click", rightOut);
+        addHandler(searchbtn, "click", search);
+    })();
+
+    function deleteEle() {
+        this.parentNode.removeChild(this);
+    }
+
+    function inputli(num) {
+        var newli = document.createElement("li");
+        newli.innerHTML = num;
+        newli.onclick = deleteEle;
+        return newli;
+    }
+
+    function leftIn() {
+        var val = document.querySelector("textarea").value,
+            queue = document.querySelector("ul"),
+            lis = queue.children,
+            // 利用正则表达式和split方法将输入的文本分割成数组
+            tempArr = val.split(/[^a-z0-9A-Z\u4e00-\u9fa5]+/),
+            returnArr = [];
+        // 遍历数组，删除数组中的空字符串
+        for (var i = 0; i < tempArr.length; i++) {
+            if (tempArr[i]) {
+                returnArr.push(tempArr[i]);
+            }
+        }
+        // 判断是否输入数字、字母或汉字
+        if (returnArr[0]) {
+            // 将输入的信息生成为li并插入
+            for (var i = 0; i < returnArr.length; i++) {
+                queue.insertBefore(inputli(returnArr[i]), lis[0]);
+            }
+        } else {
+            // 若没有输入数字、字母或汉字，弹窗提示
+            alert("请输入汉字字母或数字，用符号分隔");
+        }
+        document.querySelector("textarea").focus();
+    }
+
+    function rightIn() {
+        var val = document.querySelector("textarea").value,
+            queue = document.querySelector("ul"),
+            // 利用正则表达式和split方法将输入的文本分割成数组
+            tempArr = val.split(/[^a-z0-9A-Z\u4e00-\u9fa5]+/),
+            returnArr = [];
+        // 遍历数组，删除数组中的空字符串
+        for (var i = 0; i < tempArr.length; i++) {
+            if (tempArr[i]) {
+                returnArr.push(tempArr[i]);
+            }
+        }
+        // 判断是否输入数字、字母或汉字
+        if (returnArr[0]) {
+            // 将输入的信息生成为li并插入
+            for (var i = 0; i < returnArr.length; i++) {
+                queue.appendChild(inputli(returnArr[i]));
+            }
+        } else {
+            // 若没有输入数字、字母或汉字，弹窗提示
+            alert("请输入汉字字母或数字，用符号分隔");
+        }
+        document.querySelector("textarea").focus();
+    }
+
+    function leftOut() {
+        var textarea = document.querySelector("textarea"),
+            queue = document.querySelector("ul"),
+            lis = queue.children;
+        if (lis[0]) {
+            textarea.value = lis[0].innerText;
+            queue.removeChild(lis[0]);
+            alert("删除的元素为：" + textarea.value);
+        }
+        else {
+            alert("队列中没有元素，无法删除");
+        }
+        document.querySelector("textarea").focus();
+    }
+
+    function rightOut() {
+        var textarea = document.querySelector("textarea"),
+            queue = document.querySelector("ul"),
+            lis = queue.children;
+        if (lis[0]) {
+            var lastli = queue.lastElementChild || ul.lastChild;
+            console.log(lastli);
+            textarea.value = lastli.innerText;
+            queue.removeChild(lastli);
+            alert("删除的元素为：" + textarea.value);
+        }
+        else {
+            alert("队列中没有元素，无法删除");
+        }
+        document.querySelector("textarea").focus();
+    }
+
+    function search() {
+        /*
+         * 思路：
+         * 若多次点击，则先清除样式
+         * 获取输入的值val；
+         * 遍历lis，用正则判断lis[i]中是否存在val；
+         * 若存在，找出该li中命中的索引值，
+         * 同时转换成小写，以忽略大小写，
+         * 若存在一个字符串中不同位置俊存在的话，利用do while
+         * do indexof while返回-1
+         * 为命中的内容加标签名，并替换li的innerhtml
+         *
+         * */
+        var input = document.querySelector("input"),
+            val = input.value,
+            queue = document.querySelector("ul"),
+            lis = queue.children,
+            reg = new RegExp(val, "i"),
+            lisval, tempstr, wraptempstr;
+        if (input.value) {
+            document.querySelector("ul").innerHTML = trim(document.querySelector("ul").innerHTML);
+            if (lis[0]) {
+                for (var i = 0; i < lis.length; i++) {
+                    lisval = lis[i].innerHTML;
+                    if (reg.test(lisval)) {
+                        var minlisval = lisval.toLocaleLowerCase();
+                        var minval = val.toLocaleLowerCase();
+                        var index = minlisval.indexOf(minval);
+                        do {
+                            var beforestr = lisval.slice(0, index);
+                            var afterstr = lisval.slice(index + val.length);
+                            tempstr = lisval.slice(index, index + val.length);
+                            wraptempstr = "<span>" + tempstr + "</span>";
+                            lisval = beforestr + wraptempstr + afterstr;
+                            minlisval = lisval.toLocaleLowerCase();
+                            index = minlisval.indexOf(minval, index + 13 + val.length);
+                            console.log(beforestr);
+                            console.log(tempstr);
+                            console.log(afterstr);
+                        } while (index !== -1);
+                        lis[i].innerHTML = lisval;
+                        lis[i].onclick = deleteEle;
+                    }
+                }
+            }
+        }
+    }
+    function trim(str) {
+        return str.replace(/(<\/span>)|(<span>)/g, "");
+    }
+</script>
+</html>

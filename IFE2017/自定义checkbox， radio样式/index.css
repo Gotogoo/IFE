@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+.main{
+    width: 100%;
+    margin:100px auto;
+    text-align: center;
+}
+input{
+    margin:0;
+    display:none;
+}
+/*achieve by Pseudo-elements start*/
+.radio-1+label{
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.radio-1:checked+label{
+    border: 1px solid #D73D32
+}
+.radio-1:checked+label::before{
+    position: absolute;
+    content: "";
+    width: 6px;
+    height: 6px;
+    top: 4px;
+    left: 4px;
+    background-color: #D73D32;
+    border-radius: 50%;
+}
+.checkbox-1+label{
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 1px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+    border-radius: 2px;
+    /*vertical-align: middle;*/
+}
+.checkbox-1:checked+label{
+    border: 1px solid #D73D32
+}
+.checkbox-1:checked+label::before{
+    position: absolute;
+    /*用转义字符实现 start*/
+    /*content:"\2714";*/
+    /*font:12px/14px consolas;*/
+    /*color: #D73D32;*/
+    /*top: 0px;*/
+    /*left: 1px;*/
+    /*用转义字符实现 end*/
+    /*用border实现 start*/
+    content: "";
+    width: 6px;
+    height: 3px;
+    border-left: 2px solid #D73D32;
+    border-bottom: 2px solid #D73D32;
+    top: 3px;
+    left: 2px;
+    transform: rotate(-45deg);
+    /*用border实现 end*/
+}
+/*achieve by Pseudo-elements end*/
+/*chieve by CSS Sprites start*/
+.radio-2+label,
+.checkbox-2+label{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(http://p1.bqimg.com/567571/99322cf8c3283e42.png) no-repeat;
+}
+.radio-2+label{
+    background-position: -24px -10px;
+}
+.radio-2:checked+label{
+    background-position: -59px -10px;
+}
+.checkbox-2+label{
+    background-position: -24px -32px;
+}
+.checkbox-2:checked+label{
+    background-position: -59px -31px;
+}
+/*chieve by CSS Sprites end*/

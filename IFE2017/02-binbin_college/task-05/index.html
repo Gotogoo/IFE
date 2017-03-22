@@ -107,7 +107,7 @@
             lis = queue.children;
         if (lis[0]) {
             var lastli = queue.lastElementChild || ul.lastChild;
-            input.value = parseInt(lis[0].style.height);
+            input.value = parseInt(lastli.style.height);
             queue.removeChild(lastli);
             alert("删除的元素为：" + input.value);
         }

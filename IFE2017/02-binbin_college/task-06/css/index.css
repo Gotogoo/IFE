@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input, button, textarea {
+    outline: none;
+}
+
+.inputarea {
+    display: flex;
+    margin: auto 0;
+    padding: 20px 100px;
+    text-align: center;
+    height: 128px;
+}
+
+.msgarea {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    padding-right: 20px;
+}
+
+textarea, input {
+    box-sizing: border-box;
+    /*margin-bottom: 10px;*/
+    vertical-align: top;
+    border: 2px solid #d3dfe3;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+}
+
+textarea:focus, input:focus {
+    border: 2px solid #33B5E5;
+}
+
+textarea {
+    resize: none;
+    flex: 1;
+}
+
+.msgbtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    font-family: "Microsoft YaHei";
+    height: 36px;
+    border: 1px solid #FAFDFF;
+    box-shadow: none;
+    text-shadow: none;
+    background: #33B5E5;
+    color: #FAFDFF;
+    border-radius: 18px;
+    margin-top: 10px;
+}
+
+.msgbtns button {
+    flex: 1;
+}
+
+button:hover {
+    background: #FAFDFF;
+    border: 1px solid #33B5E5;
+    color: #33B5E5;
+}
+
+.searcharea {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+input {
+    flex: 1;
+}
+
+.searcharea button {
+}
+
+ul {
+    padding: 40px 100px 0;
+    text-align:center;
+}
+
+li {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #33B5E5;
+    cursor: pointer;
+    color: #FAFDFF;
+}
+
+span{
+    color: #FF4444;
+}
